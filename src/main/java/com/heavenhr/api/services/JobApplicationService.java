@@ -66,14 +66,14 @@ public class JobApplicationService {
 
     /**
      *Finds job application list by job id
-     * @param jobName
+     * @param jobId
      * @return
      */
-    public List<JobApplication> findByJobId(int jobName){
+    public List<JobApplication> findByJobId(int jobId){
 
         try {
 
-            return repository.findByRelatedOffer(jobName);
+            return repository.findByRelatedOffer(jobId);
 
         }catch (Exception ex){
 
