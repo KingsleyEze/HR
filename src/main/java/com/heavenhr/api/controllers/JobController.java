@@ -3,16 +3,15 @@ package com.heavenhr.api.controllers;
 import com.heavenhr.api.data.entities.Job;
 import com.heavenhr.api.data.modelDto.JobDto;
 import com.heavenhr.api.services.JobService;
+import com.heavenhr.api.utils.ErrorsUtils;
 import com.heavenhr.api.validators.JobValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Author: Kingsley Eze.
@@ -45,10 +44,9 @@ public class JobController
 
         if (result.hasErrors()) {
 
-            List<String> errors = result.getAllErrors().stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.toList());
-                return new ResponseEntity<>(errors, HttpStatus.CONFLICT);
+            List<String> errors = ErrorsUtils.getErrors(result);
+
+            return new ResponseEntity<>(errors, HttpStatus.CONFLICT);
         }else{
 
             jobService.createJob(dto);
