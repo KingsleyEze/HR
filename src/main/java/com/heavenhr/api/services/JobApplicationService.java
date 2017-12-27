@@ -38,15 +38,9 @@ public class JobApplicationService {
      */
     public JobApplication createJobApplication(JobApplicationDto dto){
 
-        Job job = jobService.findById(dto.getRelatedOffer());
-
-        int temp = job.getNumberOfApplications() + 1;
-            job.setNumberOfApplications(temp);
-            jobService.save(job);
-
         JobApplication application = new JobApplication();
             application.setCandidateEmail(dto.getCandidateEmail());
-            application.setRelatedOffer(job.getId());
+            application.setRelatedOffer(dto.getRelatedOffer());
             application.setResume(dto.getResume());
             application.setStatus(ApplicationStatus.APPLIED);
 
