@@ -15,8 +15,6 @@ import java.util.List;
 @Repository
 public interface JobApplicationRepository extends JpaRepository<JobApplication, Long> {
 
-    List<JobApplication> findByRelatedOffer(String title);
-
     List<JobApplication> findByRelatedOffer(int jobId);
 
     JobApplication findById(int id);
