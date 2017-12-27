@@ -47,22 +47,6 @@ public class JobApplicationService {
         return save(application);
     }
 
-    /**
-     * Finds job application list by job name
-     * @param jobName
-     * @return
-     */
-    public List<JobApplication> findByJobName(String jobName){
-
-        try {
-
-            return repository.findByRelatedOffer(jobName);
-
-        }catch (Exception ex){
-
-            return null;
-        }
-    }
 
     /**
      *Finds job application list by job id
