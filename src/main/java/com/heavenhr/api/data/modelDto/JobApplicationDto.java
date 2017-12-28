@@ -1,5 +1,6 @@
 package com.heavenhr.api.data.modelDto;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -12,6 +13,7 @@ public class JobApplicationDto {
     @NotEmpty(message = "Related job id is required.")
     private int relatedOffer;
 
+    @Email(message = "Please enter a valid email address.")
     @NotEmpty(message = "Candidate email is required.")
     private String candidateEmail;
 
