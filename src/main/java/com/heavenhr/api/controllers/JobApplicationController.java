@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -51,7 +52,7 @@ public class JobApplicationController {
 
     @ResponseBody
     @PostMapping("/apply")
-    public ResponseEntity<Object> applyJob(@RequestBody JobApplicationDto dto, BindingResult result){
+    public ResponseEntity<Object> applyJob(@Valid @RequestBody JobApplicationDto dto, BindingResult result){
 
         validator.validate(dto, result);
 

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -38,7 +39,7 @@ public class JobController
 
     @ResponseBody
     @PostMapping(value = "/create-job")
-    public ResponseEntity<Object> createJob(@RequestBody JobDto dto, BindingResult result){
+    public ResponseEntity<Object> createJob(@Valid @RequestBody JobDto dto, BindingResult result){
 
         validator.validate(dto, result);
 
