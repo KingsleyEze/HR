@@ -1,5 +1,7 @@
 package com.heavenhr.api.data.modelDto;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * Author: Kingsley Eze.
  * Project: heavenhr
@@ -7,8 +9,10 @@ package com.heavenhr.api.data.modelDto;
  */
 public class JobDto {
 
+    @NotEmpty(message="Job title is required.")
     private String jobTitle;
 
+    @NotEmpty(message = "Start date is required.")
     private String startDate;
 
     private int numberOfApplications;

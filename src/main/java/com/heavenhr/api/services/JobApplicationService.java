@@ -26,6 +26,11 @@ public class JobApplicationService {
     @Autowired
     private JobService jobService;
 
+    /**
+     * Persist a new or update job application
+     * @param application
+     * @return
+     */
     public JobApplication save(JobApplication application){
 
         return repository.save(application);
@@ -117,6 +122,11 @@ public class JobApplicationService {
         return repository.findAll();
     }
 
+    /**
+     * Find a Job application by Id
+     * @param id
+     * @return
+     */
     public JobApplication findById(int id) {
 
         return repository.findById(id);
